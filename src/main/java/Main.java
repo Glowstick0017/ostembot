@@ -15,15 +15,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class Main extends ListenerAdapter {
     private static JDA jda;
 
-    public static void main(String[] args) throws LoginException {
-        String token = "TOKEN HERE";
+    public static void main(String[] args) throws LoginException, InterruptedException {
+        String token = "MTA1NDE5ODA2NTExMzg1ODA1OA.GXZ1tD.WDIx0kKDYrFnVJYBY7BBhkK3cgK5ALdQLyccUs";
         JDABuilder builder = JDABuilder.createDefault(token);
         builder.enableIntents(GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_MESSAGES);
         builder.setToken(token);
@@ -31,6 +31,13 @@ public class Main extends ListenerAdapter {
         builder.addEventListeners(new Main());
         builder.setActivity(Activity.watching("board members suffer"));
         jda = builder.build();
+        jda.awaitReady();
+
+        Timer timer = new Timer();
+        Calendar date = Calendar.getInstance();
+        date.set(Calendar.HOUR_OF_DAY, 9);
+
+        timer.schedule(new QOTD(), date.getTime(), TimeUnit.MILLISECONDS.convert(1, TimeUnit.DAYS));
 
         //jda.upsertCommand("add", "add hours worked")
         //        .addOption(OptionType.STRING, "hours", "Enter hours worked", true)
@@ -90,4 +97,9 @@ public class Main extends ListenerAdapter {
         }
         fileWriter.close();
     }
+
+    public static JDA getJda() {
+        return jda;
+    }
 }
+
