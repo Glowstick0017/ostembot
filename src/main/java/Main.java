@@ -23,7 +23,7 @@ public class Main extends ListenerAdapter {
     private static JDA jda;
 
     public static void main(String[] args) throws LoginException, InterruptedException {
-        String token = "MTA1NDE5ODA2NTExMzg1ODA1OA.GXZ1tD.WDIx0kKDYrFnVJYBY7BBhkK3cgK5ALdQLyccUs";
+        String token = "TOKEN HERE";
         JDABuilder builder = JDABuilder.createDefault(token);
         builder.enableIntents(GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_MESSAGES);
         builder.setToken(token);
