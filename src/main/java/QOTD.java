@@ -1087,7 +1087,7 @@ public class QOTD extends TimerTask {
                 "What's your catchphrase?"
         };
         String rand = questions[(int) Math.floor(Math.random() * questions.length)];
-        jda.getTextChannelById("995142663017869426").sendMessage("<:lgbtq:997750945335226388> Question of the day <:lgbtq:997750945335226388>\n " + rand).queue();
+        jda.getTextChannelById("1144123597011566634").sendMessage("<:lgbtq:997750945335226388> Question of the day <:lgbtq:997750945335226388>\n " + rand).queue();
         //jda.getTextChannelById("995142663017869426").createThreadChannel(rand).queue();
     }
 }
